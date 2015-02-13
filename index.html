@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="scripts/modernizr.js"></script>
+    <script src="scripts/modernizr-platform.js"></script>
+    <script src="scripts/pixi.dev.js"></script>
+    <script src="scripts/pixi/ColorMatrixFilter2.js"></script>
+    <script src="scripts/pixi/DepthPerspectiveFilter.js"></script>
+    <script src="scripts/pixi/utils.js"></script>
+    <script src="scripts/DepthyViewer.js"></script>
+
+    <style type="text/css">
+      #main {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+      }
+
+      #viewer {
+        z-index: 1;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+      }
+
+      #viewer .depthy-viewer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      #viewer canvas {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: block;
+        pointer-events: none;
+      }      
+    </style>
+
+  </head>
+  <body>
+    
+    <div id="main">
+      <section id="viewer" style="position:absolute; left:0px; top:0px; width:100%; height:100%;">
+        <div class="depthy-viewer" id="depthy-viewer">
+          <canvas></canvas>
+        </div>
+      </section>
+    </div>
+
+    <script type="text/javascript">
+      var viewer = new DepthyViewer(document.getElementById("depthy-viewer"));
+      viewer.setImage('images/hup-image.jpg');
+      viewer.setDepthmap('images/hup-depth.jpg');
+    </script>
+</body>
+</html>
